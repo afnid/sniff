@@ -11,3 +11,15 @@ Hosts are sorted by the biggest to smallest users.
 A default 10 second sliding window sums all packets.
 Standard pcap options can be passed through.
 Asynchronous hostname lookups.
+
+
+sniff [OPTIONS]... [RULES]...
+	-h aggregate totals by host
+	-i <iface> device to listen on
+	-l exclude local to local packets
+	-p aggregate totals by ports
+	-s number of lines to show
+	-t aggregate totals by protocol
+	-v verbose
+	-w <window> size of the sample window
+	 [RULES]... standard pcap filter rules
