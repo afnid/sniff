@@ -30,11 +30,11 @@ sniff [OPTIONS]... [RULES]...
 	 
 In order to build you will need the pcap and anl libraries:
 
-gcc -g -O2 -Wall -o sniff sniff.cpp -lpcap -lanl
+g++ -g -Ofast -Wall -o sniff sniff.cpp -lpcap -lanl
+
+</pre>
 
 Running this with WAN traffic is much more interesting, but here is a sample running within a server lan:
 
 <p>
 <img src=screenshot.png/>
-
-</pre>
