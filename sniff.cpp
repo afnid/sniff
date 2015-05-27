@@ -846,6 +846,7 @@ static void showdevs() {
 static void usage() {
 	printf("sniff [OPTIONS]... [RULES]...\n");
 	printf("\t-h toggle aggregate totals by host\n");
+	printf("\t-d toggle aggregate totals by tos/dscp\n");
 	printf("\t-i <iface> device to listen on\n");
 	printf("\t-l exclude local to local packets\n");
 	printf("\t-p aggregate totals by ports used\n");
