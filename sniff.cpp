@@ -578,8 +578,14 @@ static void showhash(time_t seconds) {
 								printf(" %5d ", protocol);
 						}
 
-						if (dotos)
-							printf(" 0x%02x ", hashget(i, KeyTos));
+						if (dotos) {
+							hash_t tos = hashget(i, KeyTos);
+
+							if (tos)
+								printf("  0x%02x ", tos);
+							else
+								printf("       ");
+						}
 
 						if (doports) {
 							printf(" %5u", hashget(i, KeySrcPort));
@@ -620,7 +626,7 @@ static void showhash(time_t seconds) {
 			if (doproto)
 				pad += 6 + 1;
 			if (dotos)
-				pad += 5 + 1;
+				pad += 5 + 2;
 			if (doports)
 				pad += 5 + 5 + 2;
 
@@ -853,7 +859,7 @@ static void usage() {
 static void options(int argc, char **argv) {
 	int c;
 
-	while ((c = getopt(argc, argv, "i:hm:ps:tvw:")) > 0) {
+	while ((c = getopt(argc, argv, "di:hm:ps:tvw:")) > 0) {
 		switch (c) {
 			case 'h':
 				dohosts = !dohosts;
