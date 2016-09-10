@@ -1,7 +1,9 @@
-all: sniff
+SNIFF=~/bin/sniff
 
-sniff: sniff.cpp Makefile
-	g++ -g -Ofast -Wall -Wpedantic -ansi -o sniff sniff.cpp -lpcap -lanl
+$(SNIFF): sniff.cpp
+	echo run: apt-get install -y libpcap-dev
+	g++ -g -Ofast -Wall -Wpedantic -ansi -o $(SNIFF) sniff.cpp -lpcap -lanl
+	size $(SNIFF)
 
 clean:
-	rm -f *.o sniff
+	rm -f *.o $(SNIFF)

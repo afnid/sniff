@@ -51,16 +51,7 @@ struct lookup {
 };
 
 typedef enum {
-	KeyProto,
-	KeySrcAddr,
-	KeyDstAddr,
-	KeySrcPort,
-	KeyDstPort,
-	KeyTos,
-
-	KeyBytes,
-	KeyCount,
-	KeyMax
+	KeyProto, KeySrcAddr, KeyDstAddr, KeySrcPort, KeyDstPort, KeyTos, KeyBytes, KeyCount, KeyMax
 } KeyIdxType;
 
 static bpf_u_int32 netmask = 0;
@@ -862,43 +853,43 @@ static void options(int argc, char **argv) {
 
 	while ((c = getopt(argc, argv, "di:hm:ps:tvw:")) > 0) {
 		switch (c) {
-			case 'h':
-				dohosts = !dohosts;
-				break;
-			case 'i':
-				devname = optarg;
-				break;
-			case 'l':
-				nolocal = !nolocal;
-				break;
-			case 'p':
-				doports = !doports;
-				break;
-			case 's':
-				showlines = atoi(optarg);
-				break;
-			case 't':
-				doproto = !doproto;
-				break;
-			case 'd':
-				dotos = !dotos;
-				break;
-			case 'v':
-				verbose++;
-				break;
-			case 'w':
-				window = atoi(optarg);
-				break;
+		case 'h':
+			dohosts = !dohosts;
+			break;
+		case 'i':
+			devname = optarg;
+			break;
+		case 'l':
+			nolocal = !nolocal;
+			break;
+		case 'p':
+			doports = !doports;
+			break;
+		case 's':
+			showlines = atoi(optarg);
+			break;
+		case 't':
+			doproto = !doproto;
+			break;
+		case 'd':
+			dotos = !dotos;
+			break;
+		case 'v':
+			verbose++;
+			break;
+		case 'w':
+			window = atoi(optarg);
+			break;
 
-			case '?':
-				usage();
-				exit(1);
-				break;
+		case '?':
+			usage();
+			exit(1);
+			break;
 
-			default:
-				printf("?? getopt returned character code 0%o ??\n", c);
-				usage();
-				exit(1);
+		default:
+			printf("?? getopt returned character code 0%o ??\n", c);
+			usage();
+			exit(1);
 		}
 	}
 
